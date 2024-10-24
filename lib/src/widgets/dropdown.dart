@@ -18,6 +18,7 @@ class _Dropdown<T> extends StatelessWidget {
     this.itemBuilder,
     this.itemSeparator,
     this.singleSelect = false,
+    this.noItemsFoundMessage = 'No items found',
   }) : super(key: key);
 
   /// The decoration of the dropdown.
@@ -55,6 +56,9 @@ class _Dropdown<T> extends StatelessWidget {
 
   /// Whether the selection is single.
   final bool singleSelect;
+
+  /// The message displayed when the search returns no items.
+  final String noItemsFoundMessage;
 
   int get _selectedCount => items.where((element) => element.selected).length;
 
@@ -119,7 +123,7 @@ class _Dropdown<T> extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(12),
                   child: Text(
-                    'No items found',
+                    noItemsFoundMessage,
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium,
                   ),

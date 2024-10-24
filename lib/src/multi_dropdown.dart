@@ -84,6 +84,7 @@ class MultiDropdown<T extends Object> extends StatefulWidget {
   /// The [closeOnBackButton] is whether to close the dropdown when the back button is pressed. The default value is false.
   /// Note: This option requires the app to have a router, such as MaterialApp.router, in order to work properly.
   ///
+  /// The [noItemsFoundMessage] is the message displayed when the search returns no items.
   ///
   const MultiDropdown({
     required this.items,
@@ -106,6 +107,7 @@ class MultiDropdown<T extends Object> extends StatefulWidget {
     this.onSelectionChange,
     this.onSearchChange,
     this.closeOnBackButton = false,
+    this.noItemsFoundMessage = 'No items found',
     Key? key,
   })  : future = null,
         super(key: key);
@@ -154,6 +156,7 @@ class MultiDropdown<T extends Object> extends StatefulWidget {
     this.onSelectionChange,
     this.onSearchChange,
     this.closeOnBackButton = false,
+    this.noItemsFoundMessage = 'No items found',
     Key? key,
   })  : items = const [],
         super(key: key);
@@ -224,6 +227,9 @@ class MultiDropdown<T extends Object> extends StatefulWidget {
   ///
   /// Note: This option requires the app to have a router, such as MaterialApp.router, in order to work properly.
   final bool closeOnBackButton;
+
+  /// The message displayed when the search returns no items.
+  final String noItemsFoundMessage;
 
   @override
   State<MultiDropdown<T>> createState() => _MultiDropdownState<T>();
@@ -439,6 +445,7 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
                       maxSelections: widget.maxSelections,
                       singleSelect: widget.singleSelect,
                       onSearchChange: _dropdownController._setSearchQuery,
+                      noItemsFoundMessage: widget.noItemsFoundMessage,
                     ),
                   ),
                 ),
