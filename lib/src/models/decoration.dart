@@ -49,7 +49,7 @@ class DropdownItemDecoration {
   ///
   /// [selectedTextColor] is the text color of the selected dropdown item. The default value is white.
   ///
-  /// [textColor] is the text color of the dropdown item. The default value is black.
+  /// [textStyle] is the text style of the dropdown item.
   ///
   /// [disabledTextColor] is the text color of the disabled dropdown item. The default value is black.
   ///
@@ -61,7 +61,7 @@ class DropdownItemDecoration {
     this.disabledBackgroundColor,
     this.selectedBackgroundColor,
     this.selectedTextColor,
-    this.textColor,
+    this.textStyle,
     this.disabledTextColor,
     this.selectedIcon = const Icon(Icons.check),
     this.disabledIcon,
@@ -79,8 +79,8 @@ class DropdownItemDecoration {
   /// The text color of the selected dropdown item.
   final Color? selectedTextColor;
 
-  /// The text color of the dropdown item.
-  final Color? textColor;
+  /// The text style of the dropdown item.
+  final TextStyle? textStyle;
 
   /// The text color of the disabled dropdown item.
   final Color? disabledTextColor;

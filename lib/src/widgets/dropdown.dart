@@ -157,7 +157,7 @@ class _Dropdown<T> extends StatelessWidget {
 
     return Ink(
       child: ListTile(
-        title: Text(option.label, style: TextStyle(fontSize: 14),),
+        title: Text(option.label, style: dropdownItemDecoration.textStyle),
         trailing: trailing,
         dense: true,
         autofocus: true,
@@ -167,8 +167,8 @@ class _Dropdown<T> extends StatelessWidget {
         focusColor: dropdownItemDecoration.backgroundColor?.withAlpha(100),
         selectedColor: dropdownItemDecoration.selectedTextColor ??
             theme.colorScheme.onSurface,
-        textColor:
-            dropdownItemDecoration.textColor ?? theme.colorScheme.onSurface,
+        textColor: dropdownItemDecoration.textStyle?.color ??
+            theme.colorScheme.onSurface,
         tileColor: tileColor ?? Colors.transparent,
         selectedTileColor: dropdownItemDecoration.selectedBackgroundColor ??
             Colors.grey.shade200,
