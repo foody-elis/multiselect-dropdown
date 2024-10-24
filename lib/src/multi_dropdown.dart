@@ -608,18 +608,15 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
 
     return ConstrainedBox(
       constraints: BoxConstraints.loose(const Size(double.infinity, 32)),
-      child: Scrollbar(
+      child: ListView.separated(
         controller: scrollController,
-        child: ListView.separated(
-          controller: scrollController,
-          separatorBuilder: (context, index) => const SizedBox(width: 8),
-          scrollDirection: Axis.horizontal,
-          itemCount: selectedOptions.length,
-          itemBuilder: (context, index) {
-            final option = selectedOptions[index];
-            return _buildChip(option, chipDecoration);
-          },
-        ),
+        separatorBuilder: (context, index) => const SizedBox(width: 8),
+        scrollDirection: Axis.horizontal,
+        itemCount: selectedOptions.length,
+        itemBuilder: (context, index) {
+          final option = selectedOptions[index];
+          return _buildChip(option, chipDecoration);
+        },
       ),
     );
   }

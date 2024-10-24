@@ -94,14 +94,20 @@ class _Dropdown<T> extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               if (searchEnabled)
-                _SearchField(
-                  decoration: searchDecoration,
-                  onChanged: _onSearchChange,
+                Container(
+                  color: Colors.white,
+                  height: 70,
+                  padding: const EdgeInsets.only(top: 5, bottom: 5),
+                  child: _SearchField(
+                    decoration: searchDecoration,
+                    onChanged: _onSearchChange,
+                  ),
                 ),
               if (decoration.header != null)
                 Flexible(child: decoration.header!),
               Flexible(
                 child: ListView.separated(
+                  padding: EdgeInsets.zero,
                   separatorBuilder: (_, __) =>
                       itemSeparator ?? const SizedBox.shrink(),
                   shrinkWrap: true,
