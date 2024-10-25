@@ -541,7 +541,10 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
 
   Widget? _buildSuffixIcon() {
     if (_loadingController.value) {
-      return const CircularProgressIndicator.adaptive();
+      return Transform.scale(
+        scale: 0.5,
+        child: CircularProgressIndicator(color: Theme.of(context).primaryColor),
+      );
     }
 
     if (widget.fieldDecoration.showClearIcon &&
